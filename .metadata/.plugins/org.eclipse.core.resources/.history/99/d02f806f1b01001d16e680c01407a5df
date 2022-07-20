@@ -1,0 +1,40 @@
+package com.nt.examples;
+
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class TestNgExample1 {
+	
+	
+	@BeforeSuite
+	public void LoginApp(){	
+		System.out.println("-----Loign Code------");
+	}
+	@Test
+	public void AddUser(){
+		System.out.println("-----AddUser Code------");
+		
+	}
+	@Test
+	public void UpdateUser(){
+		System.out.println("-----UpdateUser Code------");
+		
+	}
+	@Test
+	public void deleteUser(){
+		System.out.println("-----DeleteUser Code------");
+		
+	}
+	@Test
+	public void searchUser(){
+		System.out.println("-----searud Code------");
+		
+	}
+	@AfterSuite
+	public void logOut(){
+		System.out.println("-----LogOut Code------");
+		
+	}
+
+}

@@ -1,0 +1,89 @@
+package com.nt.hrm;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class HRMUserUpdate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	@Test
+	public void deleteUser() throws InterruptedException{
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+	    driver.manage().window().maximize();
+        driver.get(app_url);
+        System.out.println("Sucessfully launched chrome browser");
+        //Loign Code 
+		driver.findElement(By.xpath("//input[@id='txtUsername']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtUsername']")).sendKeys("Admin");
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys("admin123");
+		driver.findElement(By.xpath("//input[@id='btnLogin']")).click();
+		
+		//Steps to navigate to user
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.linkText("Admin"))).build().perform();//Mouse over the admin link
+		actions.moveToElement(driver.findElement(By.linkText("User Management"))).build().perform();
+		driver.findElement(By.linkText("Users")).click();
+		
+		//Update User code
+		
+		String beforeXpath = "//table/tbody/tr[";
+		String afterXpath="]/td[2]";
+		
+		List elemnt =driver.findElements(By.xpath("//table/tbody/tr"));
+		int elementSize = elemnt.size();
+		System.out.println("List of Users :: "+elementSize);
+		
+	    for(int i=2;i<elementSize;i++){
+	    	
+	    	String ListOfUsers =driver.findElement(By.xpath(beforeXpath+i+afterXpath)).getText();
+	    	System.out.println("List of User avilabe ::  "+ListOfUsers);
+	    	if(ListOfUsers.contains("Cecil.Bonaparte")){
+	    		driver.findElement(By.xpath("//tbody/tr["+i+"]/td[2]/a")).click();
+	    		System.out.println("User can clik on hyperlink");
+	    		driver.findElement(By.xpath("//input[@id='btnSave']")).click();//Click on Edit Button
+	    		
+	    		WebElement elements = driver.findElement(By.xpath("//select[@id='systemUser_userType']"));
+	            Select userSelect = new Select(elements);
+	            userSelect.selectByVisibleText("ESS");
+	    	    
+	    		
+	    		driver.findElement(By.xpath("//input[@id='systemUser_employeeName_empName']")).sendKeys("Subhash");//Enter Employee name
+	    		driver.findElement(By.xpath("//input[@id='systemUser_userName']")).sendKeys("Subhash");//Enter User Name
+	    
+	    		WebElement elements1 = driver.findElement(By.xpath("//select[@id='systemUser_status']"));
+	            Select userSelect1 = new Select(elements1);
+	            userSelect1.selectByVisibleText("Enabled");
+	            
+	            driver.findElement(By.xpath("systemUser_chkChangePassword")).click();
+	            
+	            driver.findElement(By.xpath("//input[@id='systemUser_password']")).sendKeys("Subhash");//Enter Password
+	    		driver.findElement(By.xpath("//input[@id='systemUser_confirmPassword']")).sendKeys("Password@123");             
+	    		driver.findElement(By.xpath("//input[@id='systemUser_employeeName_empName']")).sendKeys("Subhash");//Enter Employee name
+	    		driver.findElement(By.xpath("//input[@id='systemUser_userName']")).click();//Click on Save button
+	    		System.out.println("User Updated Sucessfyully");
+	            
+	            
+	    		 
+	 
+	    	}
+	    	
+	    }
+		
+		}
+	}
+

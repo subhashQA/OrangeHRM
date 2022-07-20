@@ -1,0 +1,32 @@
+package com.nt.examples;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderExamples {
+	
+	
+	
+	@Test(dataProvider="loingdata")
+	public void singaleDimArray ( String loingdata){
+		
+		System.out.println(">>>>>>"+loingdata);
+		
+	}
+	@DataProvider(name="loingdata")
+	public Object[] dataProvider(){
+		
+		Object [] datalist  = new Object[3];
+		datalist [0]="Subhash";
+		datalist [1]="ingale";
+		datalist [2]="balasaheb";
+		
+		System.out.println(">>>>>>>"+datalist [0]);
+		System.out.println(">>>>>>>"+datalist [1]);
+		System.out.println(">>>>>>>"+datalist [2]);
+		
+		return datalist;
+	}
+	
+
+}

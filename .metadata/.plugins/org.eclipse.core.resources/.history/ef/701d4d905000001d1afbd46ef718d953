@@ -1,0 +1,27 @@
+package com.nt.examples;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class AlertClassExamples {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	@Test
+	public void clickOnOkButton(){
+		
+		//Browser Code 
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+	    driver.manage().window().maximize();
+        driver.get(app_url);
+        System.out.println("Sucessfully launched chrome browser");
+		
+	}
+
+}

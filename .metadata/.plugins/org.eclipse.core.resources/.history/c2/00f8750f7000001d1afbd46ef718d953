@@ -1,0 +1,28 @@
+package com.nt.examples;
+
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class AssertExamples {
+	@Test
+	public void example1_int(){
+		//Compare two Int Numbers if eques it is pass otherwise fail
+		int i=10;
+		int j=10;
+		SoftAssert sarrest = new SoftAssert();
+		sarrest.assertEquals(i, j);
+		System.out.println("-----Match------");
+		sarrest.assertAll();
+	}
+	@Test
+	public void example1_String(){
+		//Compare two Int Numbers if eques it is pass otherwise fail
+		String i="Subhahs";
+		String j= "subhash";
+		SoftAssert sarrest = new SoftAssert();
+		sarrest.assertEquals(i, j);
+		System.out.println("-----After Assert------");
+		sarrest.assertAll();
+
+}
+}

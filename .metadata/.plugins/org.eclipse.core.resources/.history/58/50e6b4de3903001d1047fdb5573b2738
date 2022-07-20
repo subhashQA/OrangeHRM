@@ -1,0 +1,35 @@
+package com.nt.hrm;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class HRMAdminJob {
+	
+	@Test()
+	public void addJobTitle(){
+		
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(app_url);
+		System.out.println("Sucessfully launched chrome browser");
+		//Login Code 
+	    driver.findElement(By.xpath("//input[@id='txtUsername']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtUsername']")).sendKeys("Admin");
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys("admin123");
+		driver.findElement(By.xpath("//input[@id='btnLogin']")).click();
+		
+		Actions action = new Actions(driver);
+		action.moveToElement(driver.findElement(By.linkText("Admin"))).build().perform();
+		action.moveToElement(driver.findElement(By.linkText("Job"))).build().perform();
+		driver.findElement(By.linkText("Job Titles")).click();
+				
+		
+	}
+
+}

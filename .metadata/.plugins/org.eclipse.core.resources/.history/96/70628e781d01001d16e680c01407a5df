@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.nt.examples.AlertClassExamples"/>
+      <class name="com.nt.examples.AssertExamples"/>
+      <class name="com.nt.hrm.HRMAdminDeleteUser"/>
+      <class name="com.nt.hrm.HRMHomePageForgotPassword"/>
+      <class name="com.nt.hrm.HRMHomePageLogin"/>
+      <class name="com.nt.hrm.Browsers"/>
+      <class name="com.nt.examples.testNGExamples"/>
+      <class name="com.nt.hrm.AppTest"/>
+      <class name="com.nt.examples.TestNgExample1"/>
+      <class name="com.nt.hrm.HRMAdminUpdateUser"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

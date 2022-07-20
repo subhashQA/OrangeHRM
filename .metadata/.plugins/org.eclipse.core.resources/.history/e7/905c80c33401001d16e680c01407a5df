@@ -1,0 +1,66 @@
+package com.nt.examples;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import com.nt.hrm.TestBase;
+
+public class TestNgExample1 extends TestBase {
+	
+	 
+	//Login Code  we can call from test base using @BeforeSuit  - Extends TestBase class 
+
+	@Test
+	public void AddUser(){
+		System.out.println("-----AddUser Code------");	
+		WebDriver driver;
+		
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.linkText("Admin"))).build().perform();//Mouse over the admin link
+		actions.moveToElement(driver.findElement(By.linkText("User Management"))).build().perform();//Mouse over the User Management
+		driver.findElement(By.linkText("Users")).click();//Click on User link 
+		
+		//Add User code 
+		driver.findElement(By.xpath("//input[@id='btnAdd']")).click();  // Click on Add button 
+		
+		WebElement element =driver.findElement(By.xpath("//select[@id='systemUser_userType']")); // Select user role from dropdown
+		Select userrole = new Select(element);
+		userrole.selectByVisibleText(userRole);
+		driver.findElement(By.xpath("//input[@id='systemUser_employeeName_empName']")).sendKeys(employeeName);// Enter Employee Name
+		driver.findElement(By.xpath("//input[@id='systemUser_userName']")).sendKeys(userName);//Enter Username
+		
+		WebElement element1=driver.findElement(By.xpath("//select[@id='systemUser_status']"));//Select status
+		Select Status = new Select(element1);
+		Status.selectByVisibleText(status); 
+		driver.findElement(By.xpath("//input[@id='systemUser_password']")).sendKeys(password); //Enter password
+		driver.findElement(By.xpath("//input[@id='systemUser_confirmPassword']")).sendKeys(conformPasword);//Enter conform password
+		
+		driver.findElement(By.xpath("//input[@id='btnSave']")).click();//Click on save button 
+		//driver.findElement(By.xpath("//input[@id='btnCancel']")).click();//Click on cancel button 
+		
+	}
+	@Test
+	public void UpdateUser(){
+		System.out.println("-----UpdateUser Code------");
+		
+	}
+	@Test
+	public void deleteUser(){
+		System.out.println("-----DeleteUser Code------");
+		
+	}
+	@Test
+	public void searchUser(){
+		System.out.println("-----searud Code------");
+		
+	}
+	
+	//logOut Code we can call from test base using annocation @AfterSuit  - Extends TestBase class 
+	
+
+}

@@ -1,0 +1,36 @@
+package com.nt.hrm;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+public class TestBase {
+	
+	
+	@BeforeSuite
+	public void LoginApp(){	
+		System.out.println("-----Loign Code------");
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+	    driver.manage().window().maximize();
+        driver.get(app_url);
+        System.out.println("----------Sucessfully launched chrome browser----------");
+        
+		driver.findElement(By.xpath("//input[@id='txtUsername']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtUsername']")).sendKeys("Admin");
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys("admin123");
+		driver.findElement(By.xpath("//input[@id='btnLogin']")).click();
+	}
+	
+	
+	@AfterSuite
+	public void logOut(){
+		System.out.println("-----LogOut Code------");
+		
+	}
+}

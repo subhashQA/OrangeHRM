@@ -1,0 +1,37 @@
+package com.nt.examples;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import org.openqa.selenium.WebDriver;
+
+public class ReadExcleFile {
+     WebDriver driver;
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		File excleFile = new File("C://Users//Subhash//Desktop//TestData.xlsx");
+		System.out.println(excleFile.exists());  //Verify file is exists or not
+	    FileInputStream fis = new FileInputStream(excleFile);//
+	    XSSFWorkbook workbook = new XSSFWorkbook(fis);
+	    XSSFSheet sheet =workbook.getSheet("Sheet1");
+	     int noOfRows= sheet.getPhysicalNumberOfRows();
+	    // System.out.println("Last Row No :: "+sheet.getLastRowNum());
+	     int noOfCol=sheet.getRow(0).getLastCellNum();
+	     for(int i=1;i<noOfRows;i++){
+	    	 System.out.println(i);
+	    	 for(int j=0;j<noOfCol;j++){
+	    		 System.out.println(j);
+	    		
+	    		System.out.println(sheet.getRow(i).getCell(j).getStringCellValue());
+	    	 }
+	    	System.out.println(); 
+	     }
+	    workbook.close();
+	    fis.close();
+	}
+}

@@ -1,0 +1,16 @@
+1657449925787	Rename type 'HRMSystemUserAddUser'
+1657449956018	Rename type 'HRMSystemUserDelete'
+1657455930840	Rename type 'HRMSystemUserReset'
+1657455968345	Rename type 'HRMSystemUsersSearch'
+1657455999125	Rename type 'HRMUserAdd'
+1657456068612	Rename type 'HRMAdminUserAdd'
+1657456099248	Rename type 'HRMUserDelete'
+1657456147121	Rename type 'HRMUserUpdate'
+1657456213125	Rename type 'HRMAdminSystemUserReset'
+1657456248090	Rename type 'HRMAdminSystemUsersSearch'
+1657456294300	Rename type 'HRMForgotPassword'
+1657456316724	Rename type 'HRMLogin'
+1657555943893	Delete element
+1657626516556	Move compilation unit
+1657795890266	Copy compilation unit
+1657796138651	Delete element

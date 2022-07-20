@@ -1,0 +1,71 @@
+package com.nt.examples;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class testNGExamples {
+	
+	@BeforeSuite
+	public void method1(){
+		  
+		System.out.println("I am in method 1 and before SUIT");
+		
+	}
+	@AfterSuite
+	public void method2(){
+		  
+		System.out.println("I am in method 2 and before AFTER SUIT");
+		
+	}
+	@BeforeClass
+	public void method3(){
+		  
+		System.out.println("I am in method 3 and BEFORE CLASS");
+		
+	}
+	@AfterClass
+	public void method4(){
+		  
+		System.out.println("I am in method 4 and AFTER CLASS");
+		
+	}
+	@BeforeTest
+	public void method6(){
+		System.out.println("I am in method 1 and BEFORE TEST");	
+	}
+    @AfterTest
+	public void method7(){
+		  
+		System.out.println("I am in method 7 and AFTER TEST");	
+	}
+	@BeforeMethod
+	public void method8(){
+		  
+		System.out.println("I am in method 8 and BEFORE METHOD");	
+	}
+	@AfterMethod
+	public void method9(){
+		  
+		System.out.println("I am in method 9 and BEFORE METHOD");
+		
+	}
+	@Test
+	public void method10(){
+		  
+		System.out.println("I am in method 10 and TEST");
+		
+	}
+	@Test
+	public void method11(){
+		  
+		System.out.println("I am in method 9 and TEST");
+		
+	}
+}

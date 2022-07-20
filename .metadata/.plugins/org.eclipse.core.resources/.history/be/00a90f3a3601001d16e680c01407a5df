@@ -1,0 +1,41 @@
+package com.nt.examples;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import com.nt.hrm.TestBase;
+public class TestNgExample1 extends TestBase {
+	
+	 
+	//Login Code  we can call from test base using @BeforeSuit  - Extends TestBase class 
+
+	@Test
+	public void AddUser(){
+		System.out.println("-----AddUser Code------");			
+	}
+	@Test
+	public void UpdateUser(){
+		System.out.println("-----UpdateUser Code------");
+		
+	}
+	@Test
+	public void deleteUser(){
+		System.out.println("-----DeleteUser Code------");
+		
+	}
+	@Test
+	public void searchUser(){
+		System.out.println("-----searud Code------");
+		
+	}
+	
+	//logOut Code we can call from test base using annocation @AfterSuit  - Extends TestBase class 
+	
+
+}

@@ -1,0 +1,32 @@
+package com.nt.hrm;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HRMHomePageForgotPassword {
+     WebDriver driver;
+     Browsers br = new Browsers();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HRMHomePageForgotPassword fb = new HRMHomePageForgotPassword();
+		fb.hrmForgotPassword();
+	}
+	
+	public void  hrmForgotPassword(){
+		//Browser Launch Code
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+	    driver.manage().window().maximize();
+        driver.get(app_url);
+        System.out.println("Sucessfully launched chrome browser");
+        //Forgot Password code
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		driver.findElement(By.xpath("//input[@id='securityAuthentication_userName']")).sendKeys("");
+		driver.findElement(By.xpath("//input[@id='btnSearchValues']")).click();
+		driver.findElement(By.xpath("//input[@id='btnCancel']")).click();
+	}
+
+}

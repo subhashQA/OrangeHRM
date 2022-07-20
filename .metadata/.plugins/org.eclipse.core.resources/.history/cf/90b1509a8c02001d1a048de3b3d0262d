@@ -1,0 +1,40 @@
+package com.nt.examples;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class LoginTestCaseWithDataProvider {
+	
+	
+	
+	@Test(dataProvider="loginTestData")
+	public void facebookLogin(String Username,String password) throws AWTException{
+		
+		String URL="https://www.facebook.com/";
+		System.setProperty("webdriver.chrome.driver", "lib/Chromedriverv103/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		
+		//FaceBook Loing 
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Username);  //Enter user name 
+		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(password);  				//Ener Password
+		driver.findElement(By.xpath("//button[@name='login']")).click(); //Click on Loing BUTTON
+		System.out.println("Sucessfull runing login test scripts");
+		driver.close();	
+	}
+	@DataProvider(name="loginTestData")
+	public Object[][] testDataFacebook(){
+		Object [][] testData= new Object [][]{
+			{"test.subhash@gmail.com","Subhash9596"}
+		};
+		return testData;
+	}
+
+}

@@ -1,0 +1,43 @@
+package com.nt.hrm;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+
+public class Browsers {
+
+
+	@Test
+	public void chromeBrowser(){
+		System.out.println("Testing Started");
+		
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+	    driver.manage().window().maximize();
+        driver.get(app_url);
+        String actResult= driver.getCurrentUrl();
+        String expResult="https://opensource-demo.orangehrmlive.com/";
+        Assert.assertEquals(actResult, expResult);
+        System.out.println("Sucessfully launched chrome browser");
+        
+        
+	}
+	
+	public void firefoxBrowser(){
+		
+	System.out.println("Testing Started");
+		
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/geckodriver/geckodriver.exe";
+		System.setProperty("webdriver.gecko.driver", browser_path);
+		WebDriver driver = new FirefoxDriver();
+	    driver.manage().window().maximize();
+        driver.get(app_url);
+        System.out.println("Sucessfully launched firefox browser");
+		
+	}
+
+}

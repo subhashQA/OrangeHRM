@@ -1,0 +1,21 @@
+package com.nt.examples;
+
+public class testNGAnnotationsEnablePriority {
+
+	public void  login(){
+		System.out.println("I am in Loing ");
+	}
+	public void  AddUser(){
+		System.out.println("I am in addUser ");
+	}
+	public void  UpdateUser(){
+		System.out.println("I am in UpdateUser ");
+	}
+	public void  deleteUser(){
+		System.out.println("I am in deleteUser ");
+	}
+	
+	public void  Logout(){
+		System.out.println("I am in logout ");
+	}
+}

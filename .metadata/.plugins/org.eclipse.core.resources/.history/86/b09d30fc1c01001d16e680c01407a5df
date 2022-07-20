@@ -1,0 +1,32 @@
+package com.nt.examples;
+
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import com.nt.hrm.TestBase;
+
+public class TestNgExample1 extends TestBase {
+
+	@Test
+	public void AddUser(){
+		System.out.println("-----AddUser Code------");	
+	}
+	@Test
+	public void UpdateUser(){
+		System.out.println("-----UpdateUser Code------");
+		
+	}
+	@Test
+	public void deleteUser(){
+		System.out.println("-----DeleteUser Code------");
+		
+	}
+	@Test
+	public void searchUser(){
+		System.out.println("-----searud Code------");
+		
+	}
+	
+
+}

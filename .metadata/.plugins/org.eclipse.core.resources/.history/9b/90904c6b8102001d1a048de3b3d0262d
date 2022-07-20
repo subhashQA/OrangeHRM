@@ -1,0 +1,27 @@
+package com.nt.examples;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import net.bytebuddy.asm.Advice.Return;
+
+public class DataProviderExamples {
+	
+	
+	
+	@Test(dataProvider="loingdata")
+	public void singaleDimArray ( String a){
+		
+		System.out.println(">>>>>>"+a);
+		
+	}
+	@DataProvider(name="testData")
+	public String [] testdata(){
+		String [3] data= {"subhash","ingale"};
+		
+	};
+	return data;
+	
+}
+
+

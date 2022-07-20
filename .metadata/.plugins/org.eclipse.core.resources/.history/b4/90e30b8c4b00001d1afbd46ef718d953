@@ -1,0 +1,62 @@
+package com.nt.hrm;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class HRMUserAdd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		HRMUserAdd adduser= new HRMUserAdd();
+		
+		adduser.addUser("ESS", "John Smith", "jsmith", "Enabled", "Pssword!", "Pssword!");
+	}
+	public void addUser(String userRole,String employeeName,String userName,String status,String password,String conformPasword){
+		
+		//Browser Code 
+		String app_url = "https://opensource-demo.orangehrmlive.com/";
+		String browser_path="lib/chromedriver/chromedriverv103.exe";
+		System.setProperty("webdriver.chrome.driver", browser_path);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(app_url);
+		System.out.println("Sucessfully launched chrome browser");
+		//Login Code 
+	    driver.findElement(By.xpath("//input[@id='txtUsername']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtUsername']")).sendKeys("Admin");
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).clear();
+		driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys("admin123");
+		driver.findElement(By.xpath("//input[@id='btnLogin']")).click();
+				
+		
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.linkText("Admin"))).build().perform();//Mouse over the admin link
+		actions.moveToElement(driver.findElement(By.linkText("User Management"))).build().perform();//Mouse over the User Management
+		driver.findElement(By.linkText("Users")).click();//Click on User link 
+		
+		//Add User code 
+		driver.findElement(By.xpath("//input[@id='btnAdd']")).click();  // Click on Add button 
+		
+		WebElement element =driver.findElement(By.xpath("//select[@id='systemUser_userType']")); // Select user role from dropdown
+		Select userrole = new Select(element);
+		userrole.selectByVisibleText(userRole);
+		driver.findElement(By.xpath("//input[@id='systemUser_employeeName_empName']")).sendKeys(employeeName);// Enter Employee Name
+		driver.findElement(By.xpath("//input[@id='systemUser_userName']")).sendKeys(userName);//Enter Username
+		
+		WebElement element1=driver.findElement(By.xpath("//select[@id='systemUser_status']"));//Select status
+		Select Status = new Select(element1);
+		Status.selectByVisibleText(status); 
+		driver.findElement(By.xpath("//input[@id='systemUser_password']")).sendKeys(password); //Enter password
+		driver.findElement(By.xpath("//input[@id='systemUser_confirmPassword']")).sendKeys(conformPasword);//Enter conform password
+		
+		driver.findElement(By.xpath("//input[@id='btnSave']")).click();//Click on save button 
+		//driver.findElement(By.xpath("//input[@id='btnCancel']")).click();//Click on cancel button 
+		
+	}
+
+}
